@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join VIP | Acadex Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="premium-theme auth-page-bg">
+    <div class="background-glow"></div>
+    
+    <div class="auth-center-wrapper">
+        <div class="glass-panel auth-card">
+            <div class="auth-header">
+                <i class="fas fa-user-plus gold-text main-logo-icon"></i>
+                <h1>BECOME <span class="pro-badge">VIP</span></h1>
+                <p>Start your academic journey with us</p>
+            </div>
+            
+            <form id="regForm" class="vip-form">
+                <div class="input-field">
+                    <label>Full Name</label>
+                    <input type="text" id="regName" placeholder="Enter your name" required class="vip-input">
+                </div>
+                <div class="input-row-vip">
+                    <div class="input-field">
+                        <label>Student ID</label>
+                        <input type="text" id="regID" placeholder="ID" required class="vip-input">
+                    </div>
+                    <div class="input-field">
+                        <label>Dept.</label>
+                        <input type="text" id="regDept" placeholder="e.g. CSE" required class="vip-input">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Password</label>
+                    <input type="password" id="regPass" placeholder="••••••••" required class="vip-input">
+                </div>
+                <button type="submit" class="btn-vip-add">Initialize Account</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already a member? <a href="index.html" class="gold-link">Login Here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
