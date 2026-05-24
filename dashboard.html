@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Dashboard | Acadex Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="premium-theme">
+    <div class="background-glow"></div>
+    
+    <nav class="vip-nav">
+        <div class="logo-vip">
+            <i class="fas fa-crown gold-text"></i>
+            <span>ACADEX <span class="pro-badge">PRO</span></span>
+        </div>
+        <div class="nav-right">
+            <div class="user-meta">
+                <div class="nav-avatar">Hi</div>
+                <span id="welcomeText">Welcome</span>
+            </div>
+            <button onclick="logout()" class="btn-vip-logout" title="Logout">
+                <i class="fas fa-power-off"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="vip-container">
+        <header class="vip-stats-header">
+            <div class="stat-glass-card">
+                <div class="stat-content">
+                    <p class="label">Overall CGPA</p>
+                    <h1 id="overallCGPA" class="cgpa-value">0.00</h1>
+                </div>
+                <div class="stat-visual"><i class="fas fa-chart-line"></i></div>
+            </div>
+            <div class="stat-glass-card">
+                <div class="stat-content">
+                    <p class="label">Student Identity</p>
+                    <h3 id="sID">ID: ---</h3>
+                    <p id="sDept" class="dept-text">Dept: ---</p>
+                </div>
+                <div class="stat-visual"><i class="fas fa-id-card"></i></div>
+            </div>
+        </header>
+
+        <div class="vip-grid">
+            <section class="vip-section-left">
+                <div class="glass-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-plus-circle gold-text"></i> Term Entry</h3>
+                    </div>
+                    <div class="vip-form">
+                        <input type="text" id="subName" placeholder="Subject Name" class="vip-input">
+                        <div class="input-row-vip">
+                            <input type="number" id="subCredit" placeholder="Credits" class="vip-input">
+                            <input type="number" id="subMarks" placeholder="Marks" class="vip-input">
+                        </div>
+                        <button onclick="addSubject()" class="btn-vip-add">
+                            <i class="fas fa-plus"></i> Add Subject
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-panel mt-25">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-calculator gold-text"></i> Current Calculation</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="vip-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Cr.</th>
+                                    <th>Marks</th>
+                                    <th>Grade</th>
+                                    <th>GPA</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subjectList"></tbody>
+                        </table>
+                    </div>
+                    <div class="vip-calc-footer">
+                        <div class="sem-gpa-display">
+                            <p>Term GPA</p>
+                            <h2 id="currentGPA">0.00</h2>
+                        </div>
+                        <div class="save-actions">
+                            <input type="number" id="semesterNum" placeholder="Sem No" class="vip-input-small">
+                            <button onclick="saveSemesterResult()" class="btn-vip-save">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="vip-section-right">
+                <div class="glass-panel h-full">
+                    <div class="panel-header flex-between">
+                        <h3><i class="fas fa-vault gold-text"></i> Stored Vault</h3>
+                        <button onclick="generateResultQR()" class="btn-vip-qr" title="Generate QR Profile">
+                            <i class="fas fa-qrcode"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-vault">
+                        <select id="viewSemesterFilter" onchange="viewResultsBySemester()" class="vip-select">
+                            <option value="all">Full History</option>
+                        </select>
+                        <button onclick="clearAllHistory()" class="btn-link-danger">Clear All</button>
+                    </div>
+
+                    <div class="history-vault-list" id="storedHistoryList"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="qrModal" class="vip-modal">
+        <div class="vip-modal-content">
+            <span onclick="closeQR()" class="close-vip">&times;</span>
+            <div class="qr-header">
+                <h3>Official Verification</h3>
+            </div>
+            <div id="qrcode"></div>
+            <p id="qrInfo" class="qr-info-text"></p>
+            <button onclick="closeQR()" class="btn-vip-close">Close Vault</button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
